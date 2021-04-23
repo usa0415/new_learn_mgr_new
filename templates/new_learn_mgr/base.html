@@ -1,0 +1,37 @@
+{% load static %}
+<html lang="jp">
+    <head>
+        <title>学習記録</title>
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <style>
+    #test01 li {display: inline-block;}
+    </style>
+    </head>
+    <body>
+        <nav>
+            <!--　<p>項目</p>　-->
+            <h1>MENU</h1>
+            <div id="pageitem">
+                {% include 'new_learn_mgr/pagelist.html' %}
+            </div>
+        </nav>
+        <header>
+            <ul id="test01">
+                <li><h1>Learn manager</h1></li>
+                {% if user.is_authenticated %}
+                <li>
+                <a class="nav-link">ユーザ名：{{ user.get_username }}</a>
+                </li>
+                <li>
+                <a class="nav-link" href="{% url 'accounts:logout' %}">
+                <i class="fa fa-fw fa-sign-out"></i>ログアウト</a>
+                </li>
+                {% endif %}
+            </ul>
+        </header>
+
+        {% block content %}{% endblock %}
+    </body>
+</html>

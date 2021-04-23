@@ -1,0 +1,177 @@
+p {
+   font-family: "Roboto";
+   font-size: 14pt;
+   color: #44546A;
+   margin: 0px;
+}
+
+body {
+   display: grid;
+   margin: 0;
+   height: 100vh;
+   grid-template-rows: 75px 1fr;
+   grid-template-columns: 250px 1fr;
+   grid-template-areas:
+      "nav    header  "
+      "nav    main    ";
+}
+
+nav {
+   grid-area: nav;
+   text-align: right;
+   display: grid;
+   margin: 0;
+   min-height: 100vh;
+   grid-template-rows: 2px 100px 1fr;
+   grid-template-columns: 1fr;
+   grid-template-areas:
+       "stitle "
+       "mtitle "
+       "plist  ";
+   padding : 10px;
+   box-shadow: 1px 1px 2px gray;
+   z-index: 2;
+}
+
+nav h1 {
+   grid-area: mtitle;
+   color: #2E75B6;
+   font-family: "Roboto";
+   font-size: 24pt;
+   font-weight: bold;
+   text-align: right;
+}
+
+nav p {
+   grid-area: stitle;
+   color: #44546A;
+   font-family: "Roboto";
+   font-size: 14pt;
+   text-align: right;
+}
+
+nav div {
+   grid-area: plist;
+}
+
+nav div ul{
+   list-style: none;
+}
+
+nav div ul li a {
+   color: #44546A;
+   font-family: "Roboto";
+   font-size: 12pt;
+   font-weight: bold;
+   text-align: right;
+   background-color: #f4f5f7;
+   border-left: 10px solid #44546A;
+   padding: 5px 10px;
+   margin: 0 0 10px 0;
+   text-decoration: none;
+   display: block;
+}
+
+nav div ul li a:hover {
+   background: #8795a8;
+   color: #FFF;
+}
+
+header {
+   grid-area: header;
+   background: #f4f5f7;
+   margin : 0px;
+   text-align: left;
+   z-index: 1;
+   padding: 10px;
+   box-shadow: 1px 1px 2px gray;
+}
+
+header p {
+   grid-area: stitle;
+   color: #44546A;
+   font-family: "Roboto";
+   font-size: 11.5pt;
+   text-align: left;
+   margin : 0px;
+}
+
+main {
+   overflow: auto;
+   grid-area: main;
+   margin : 0px;
+   margin-left: 10px;
+}
+
+main h1 {
+   grid-area: mtitle;
+   color: hsl(215, 22%, 34%);
+   font-family: "Roboto";
+   font-size: 20pt;
+   font-weight: bold;
+   text-align: left;
+   padding-left: 15px;
+}
+
+main div p {
+   text-align: center;
+}
+
+main::-webkit-scrollbar {
+   display:none;
+}
+
+table{
+  width: 100%;
+  border-collapse:separate;
+  border-spacing: 0;
+}
+
+table th:first-child{
+  border-radius: 5px 0 0 0;
+  width: 1px;
+    white-space: nowrap;
+}
+
+table th:last-child{
+  border-radius: 0 5px 0 0;
+  border-right: 1px solid #3c6690;
+  width: 1px;
+    white-space: nowrap;
+}
+
+table th{
+  text-align: center;
+  color:white;
+  background: linear-gradient(#829ebc,#225588);
+  border-left: 1px solid #3c6690;
+  border-top: 1px solid #3c6690;
+  border-bottom: 1px solid #3c6690;
+  box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
+  width: 20%;
+  padding: 5px 0;
+  white-space: nowrap;
+}
+
+table td{
+  text-align: left;
+  border-left: 1px solid #a8b7c5;
+  border-bottom: 1px solid #a8b7c5;
+  border-top:none;
+  box-shadow: 0px -3px 5px 1px #eee inset;
+  width: 20%;
+  padding: 5px 0;
+  white-space: nowrap;
+}
+
+table td:last-child{
+  border-right: 1px solid #a8b7c5;
+}
+
+table tr:last-child td:first-child {
+  border-radius: 0 0 0 5px;
+}
+
+table tr:last-child td:last-child {
+  border-radius: 0 0 5px 0;
+}

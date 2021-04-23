@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% extends 'new_learn_mgr/base.html' %}
+{% block content %}
+{% load static %}
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>Title</title>
+</head>
+<body>
+
+<main>
+    <p></p>
+    <h1>累計</h1>
+<table>
+    <tr>
+        <th>内容</th>
+        <th>時間</th>
+    </tr>
+    {% for x,y in zipped_list %}
+    <tr>
+        <td>{{ x }}</td>
+        <td>{{ y }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</main>
+{% endblock %}
+</body>
+</html>
