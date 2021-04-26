@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'ioput',
     'mathfilters',
     'datetimewidget',
+    'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [
