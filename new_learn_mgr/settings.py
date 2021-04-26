@@ -144,10 +144,26 @@ try:
 except ImportError:
     pass
 
-if not DEBUG:
-    SECRET_KEY = os.environ['SECRET_KEY']
-    import django_heroku
-    django_heroku.settings(locals())
+#if not DEBUG:
+#    SECRET_KEY = os.environ['SECRET_KEY']
+#    import django_heroku
+#    django_heroku.settings(locals())
+
 
 import dj_database_url
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+#DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+#ローカルで作業する時は上のDATABSE設定をコメントアウトすること
+
+# SECRET_KEYを外出し(環境変数)にしてる＝本番環境(heroku)
+if bool(os.getenv('SECRET_KEY', False)):
+    import dj_database_url
+    import django_heroku
+    SECRET_KEY = os.environ['SECRET_KEY']
+    DATABASES['default'] = dj_database_url.config()
+    django_heroku.settings(locals())
+    DEBUG = False #True:デバッグ、False:本番
+
+# SECRET_KEYを外出し(環境変数)にしてない＝テスト環境
+else:
+    from .local_settings import *
+    DEBUG = True #True:デバッグ、False:本番
