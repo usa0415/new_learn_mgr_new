@@ -30,13 +30,17 @@ def index(request):
     T6 = [0, 0, 0, 0, 0, 0]
     T7 = [0, 0, 0, 0, 0, 0]
 
-    T1.insert(0, time[0])
-    T2.insert(1, time[1])
-    T3.insert(2, time[2])
-    T4.insert(3, time[3])
-    T5.insert(4, time[4])
-    T6.insert(5, time[5])
-    T7.insert(6, time[6])
+    if len(time) > 0:
+        T1.insert(0, time[0])
+        T2.insert(1, time[1])
+        T3.insert(2, time[2])
+        T4.insert(3, time[3])
+        T5.insert(4, time[4])
+        T6.insert(5, time[5])
+        T7.insert(6, time[6])
+
+    if len(category) == 0:
+        category = ['', '', '', '', '', '', '']
 
     #円グラフ用データ
     pie_data = leraning_time.objects.all().values('category').annotate(total=Sum('time'))
